@@ -32,7 +32,7 @@ directly through the Hugging Face ecosystem.
 
 ------------------------------------------------------------------------
 
-## Fine-Tuning with Emotions
+## Fine-Tuning
 
 The repository currently includes a **fine-tuning script** that allows
 training the model on datasets.
@@ -51,8 +51,6 @@ To fine‑tune the model:
 python finetune.py --output_dir ./checkpoints/eg-sa-ma-iq-v1 --model_name_or_path oddadmix/lahgtna-chatterbox-v0 --dataset_name oddadmix/example --train_split_name train --eval_split_size 0.005 --num_train_epochs 1 --per_device_train_batch_size 4 --gradient_accumulation_steps 2 --learning_rate 5e-5 --warmup_steps 100 --logging_steps 10 --eval_strategy steps --eval_steps 400 --save_strategy steps --save_steps 100 --save_total_limit 2 --fp16 True --report_to wandb --dataloader_num_workers 8 --do_train --do_eval --dataloader_pin_memory False --eval_on_start True --label_names labels_speech --text_column_name text
 ```
 
-The script trains the model using the dataset and learns how to
-reproduce emotional cues in generated speech.
 
 ------------------------------------------------------------------------
 
