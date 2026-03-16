@@ -125,7 +125,7 @@ class DataArguments:
         default="train", metadata={"help": "The name of the training data set split."}
     )
     eval_split_name: Optional[str] = field(
-        default="validation",
+        default="test",
         metadata={"help": "The name of the evaluation data set split."},
     )
     text_column_name: str = field(
@@ -198,7 +198,7 @@ class SpeechFineTuningDataset(Dataset):
             item = self.dataset_source[idx]
             text = item[self.data_args.text_column_name]
             audio_data = item[self.data_args.audio_column_name]
-            language = self.data_args.language
+            language = None
             if item["language"]:
                 if item["language"] == "eg":
                     language = "ms"
@@ -208,6 +208,21 @@ class SpeechFineTuningDataset(Dataset):
                     language = "pl"
                 if item["language"] == "iq":
                     language = "no"
+                if item["language"] == "lb":
+                    language = "nl"
+                if item["language"] == "sd":
+                    language = "pt"
+                if item["language"] == "sy":
+                    language = "ko"
+                if item["language"] == "ly":
+                    language = "sw"
+                if item["language"] == "ps":
+                    language = "he"
+                if item["language"] == "tn":
+                    language = "da"
+
+            if language == None:
+                print("Language not defined")
 
             if isinstance(audio_data, str):
                 wav_array, original_sr = librosa.load(audio_data, sr=None, mono=True)
@@ -672,6 +687,7 @@ def main():
             data_args.dataset_config_name,
             cache_dir=model_args.cache_dir,
             verification_mode=verification_mode,
+            num_proc=28
             # trust_remote_code=True # If dataset script requires it
         )
         
@@ -691,7 +707,10 @@ def main():
                 f"Train split '{data_args.train_split_name}' not found. Available: {list(raw_datasets_loaded.keys())}"
             )
         train_hf_dataset = raw_datasets_loaded[data_args.train_split_name]
-        train_hf_dataset = train_hf_dataset.shuffle(seed=105)
+
+        print(data_args.eval_split_name)
+        
+        # train_hf_dataset = train_hf_dataset.shuffle(seed=105)
         if training_args.do_eval:
             if (
                 data_args.eval_split_name

@@ -10,7 +10,12 @@ from .saudiTextUtil import normalize_text_for_tts_saudi
 from .egyptianTextUtil import normalize_text_for_tts_egyptian
 from .morocoTextUtil import normalize_text_for_tts_moroccan
 from .iraqiTextUtil import normalize_text_for_tts_iraqi
-
+from .lebaneseTextUtil import normalize_text_for_tts_lebanese
+from .sudanTextUtil import normalize_text_for_tts_sudanese
+from .syriaTextUtil import normalize_text_for_tts_syrian
+from .lybiaTextUtil import normalize_text_for_tts_libyan
+from .palestinianTextUtil import normalize_text_for_tts_palestinian
+from .tunisianTextUtil import normalize_text_for_tts_tunisian
 
 # Special tokens
 SOT = "[START]"
@@ -307,6 +312,24 @@ class MTLTokenizer:
             txt = normalize_text_for_tts_moroccan(txt)
         elif language_id == 'no':
             txt = normalize_text_for_tts_iraqi(txt)
+
+        elif language_id == 'nl':
+            txt = normalize_text_for_tts_lebanese(txt)
+        elif language_id == 'pt':
+            txt = normalize_text_for_tts_sudanese(txt)
+
+        elif language_id == 'ko':
+            txt = normalize_text_for_tts_syrian(txt)
+
+        elif language_id == 'sw':
+            txt = normalize_text_for_tts_libyan(txt)
+
+        elif language_id == 'he':
+            txt = normalize_text_for_tts_palestinian(txt)
+
+        elif language_id == 'da':
+            txt = normalize_text_for_tts_tunisian(txt)
+        
         
         # Prepend language token
         if language_id:
