@@ -10,6 +10,12 @@ from typing import Dict, List, Optional, Union, Any
 import os
 
 os.environ["TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"] = "1"
+os.environ["NCCL_P2P_DISABLE"] = "1"
+os.environ["NCCL_IB_DISABLE"] = "1"
+
+
+
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
 import torch
 import numpy as np
 from numpy.core.multiarray import _reconstruct
