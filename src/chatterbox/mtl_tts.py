@@ -51,8 +51,15 @@ ARABIC_DIALECTS_MAPPING = {
     "eg": "ms",
     "sa": "sv",
     "mo": "pl",
-    "iq": "no"
+    "iq": "no",
+    "sd": "pt",
+    "tn": "da",
+    "lb": "nl",
+    "sy": "ko",
+    "ly": "sw",
+    "ps": "he"
 }
+
 
 
 def punc_norm(text: str) -> str:
