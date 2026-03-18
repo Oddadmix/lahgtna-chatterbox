@@ -12,7 +12,7 @@ preserving natural speaking styles and expressive audio.
 
 The Lahgtna model is available on Hugging Face:
 
-`https://huggingface.co/oddadmix/lahgtna-chatterbox-v0`
+`https://huggingface.co/oddadmix/lahgtna-chatterbox-v1`
 
 You can download the model, explore training details, and run inference
 directly through the Hugging Face ecosystem.
