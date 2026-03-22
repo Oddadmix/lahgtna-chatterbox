@@ -218,5 +218,5 @@ src/wandb
 .streamlit/secrets.toml
 
 # macOS
-.DS_Store
+**/.DS_Store
 ._*
