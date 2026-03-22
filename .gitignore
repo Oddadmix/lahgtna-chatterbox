@@ -216,3 +216,7 @@ src/wandb
 *.wav
 # Streamlit
 .streamlit/secrets.toml
+
+# macOS
+.DS_Store
+._*
