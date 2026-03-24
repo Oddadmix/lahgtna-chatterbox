@@ -294,8 +294,8 @@ class MTLTokenizer:
         txt = self.preprocess_text(txt, language_id=language_id, lowercase=lowercase, nfkd_normalize=nfkd_normalize)
         
         # Language-specific text processing
-        # if language_id == 'zh':
-        #     txt = self.cangjie_converter(txt)
+        if language_id == 'zh':
+            txt = self.cangjie_converter(txt)
         # elif language_id == 'ja':
         #     txt = hiragana_normalize(txt)
         # elif language_id == 'he':
