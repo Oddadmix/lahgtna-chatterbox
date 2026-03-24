@@ -19,18 +19,61 @@ directly through the Hugging Face ecosystem.
 
 ------------------------------------------------------------------------
 
-## Repository Structure
+## Supported Dialects
 
-    lahgtna/
-    │
-    ├── src/
-    │   └── finetune.py
-    │
-    └── README.md
+| Code | Dialect       | Chatterbox language |
+|------|---------------|---------------------|
+| `eg` | Egyptian      | `ms`                |
+| `sa` | Saudi         | `sv`                |
+| `mo` | Moroccan      | `pl`                |
+| `iq` | Iraqi         | `no`                |
+| `sd` | Sudanese      | `pt`                |
+| `tn` | Tunisian      | `da`                |
+| `lb` | Lebanese      | `nl`                |
+| `sy` | Syrian        | `ko`                |
+| `ly` | Libyan        | `sw`                |
+| `ps` | Palestinian   | `he`                |
+| `ar` | MSA (default) | `ar`                |
 
--   `src/finetune.py` --- Script used to fine-tune the Lahgtna model.
+> **Note:** Non-Arabic ISO codes in the *Chatterbox language* column are
+> repurposed backbone identifiers — this is intentional.
 
-------------------------------------------------------------------------
+
+### Reference audio
+
+Place your speaker reference `.wav` / `.flac` files in `./wavs/`.
+The expected filenames are listed in `config.LANGUAGE_CODES`.  You can
+provide your own recordings — any clean, 3–10 second mono clip at ≥ 22 kHz
+will work.
+
+---
+
+## Quick start
+
+```bash
+python inference.py \
+  --text "اه ياراسي الواحد دماغه وجعاه" \
+  --output output.wav
+```
+
+Override dialect detection:
+
+```bash
+python inference.py \
+  --text "يا هلا والله" \
+  --dialect sa \
+  --output saudi.wav
+```
+
+Adjust generation parameters:
+
+```bash
+python inference.py \
+  --text "..." \
+  --exaggeration 0.9 \
+  --temperature 0.7 \
+  --cfg-weight 0.4
+```
 
 ## Fine-Tuning
 
