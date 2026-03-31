@@ -41,11 +41,11 @@ SNAPSHOT_PATTERNS: list[str] = [
 # identifiers — this is intentional and not a bug.
 
 LANGUAGE_CODES: dict[str, dict[str, str]] = {
-    "eg": {"code": "ms", "ref": "./wavs/egypt-ref.wav"},        # Egyptian
+    "eg": {"code": "ms", "ref": "./wavs/ar_prompts2.flac"},        # Egyptian
     "sa": {"code": "sv", "ref": "./wavs/saudi.wav"},            # Saudi
     "mo": {"code": "pl", "ref": "./wavs/mor-enhanced.wav"},     # Moroccan
     "iq": {"code": "no", "ref": "./wavs/iraqi-enhanced.wav"},   # Iraqi
-    "sd": {"code": "pt", "ref": "./wavs/egypt-ref.wav"},        # Sudanese (shares ref)
+    "sd": {"code": "pt", "ref": "./wavs/sud-ref.wav"},        # Sudanese 
     "tn": {"code": "da", "ref": "./wavs/tun-ref.wav"},          # Tunisian
     "lb": {"code": "nl", "ref": "./wavs/leb-ref.wav"},          # Lebanese
     "sy": {"code": "ko", "ref": "./wavs/syrian-ref.wav"},       # Syrian
